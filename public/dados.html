@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabela de Pets</title>
+    <link rel="stylesheet" href="css/dados.css" />
+  </head>
+  <body>
+    <div id="loginForm">
+      <h2>Login - Funcionários</h2>
+      <form id="login">
+        <input type="text" id="username" placeholder="Usuário" required />
+        <input type="password" id="password" placeholder="Senha" required />
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+
+    <div id="tabelaPets" style="display: none">
+      <h1>Tabela de Pets e Clientes</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Espécie</th>
+            <th>Raça</th>
+            <th>Idade</th>
+            <th>Dono</th>
+            <th>Contato</th>
+          </tr>
+        </thead>
+        <tbody id="petsTableBody"></tbody>
+      </table>
+    </div>
+
+    <script src="js/dados.js"></script>
+  </body>
+</html>

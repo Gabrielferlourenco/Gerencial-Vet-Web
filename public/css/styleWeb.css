@@ -1,0 +1,47 @@
+#main {
+  background-color: #f9f9f9;
+  width: 75rem;
+  margin: 2rem auto;
+}
+
+.welcome-section {
+  margin: 2rem auto;
+  padding: 2rem;
+  width: 75rem;
+  background-color: #f9f9f9;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.welcome-section img {
+  width: 500px;
+  height: auto;
+  margin: auto;
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: #007bff;
+}
+.service-title {
+  font-weight: bold;
+}
+.service-description {
+  color: #555;
+}
+.services-section {
+  width: 75rem;
+  padding: 2rem 0;
+  background-color: #f9f9f9;
+}
+
+.carousel-container {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+.carousel-inner img {
+  height: 600px;
+  object-fit: contain;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Pet</title>
+    <link rel="stylesheet" href="css/cadastro.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Cadastro de Pet</h2>
+      <form id="petForm" onsubmit="return validateForm()">
+        <label for="petName">Nome do Pet:</label>
+        <input type="text" id="petName" name="petName" required />
+
+        <label for="species">Espécie:</label>
+        <select id="species" name="species" required>
+          <option value="Cachorro">Cachorro</option>
+          <option value="Gato">Gato</option>
+          <option value="Outro">Outro</option>
+        </select>
+
+        <label for="breed">Raça:</label>
+        <input type="text" id="breed" name="breed" required />
+
+        <label for="age">Idade:</label>
+        <input type="number" id="age" name="age" required />
+
+        <label for="ownerName">Nome do Dono:</label>
+        <input type="text" id="ownerName" name="ownerName" required />
+
+        <label for="contact">Contato:</label>
+        <input type="tel" id="contact" name="contact" required />
+
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

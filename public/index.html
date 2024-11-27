@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerencial Vet</title>
+    <!-- Link do Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styleWeb.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Gerencial Vet</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="cadastro.html">Cadastra-se</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="dados.html">Área de Funcionários</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contato">Contato</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container welcome-section">
+      <h1 class="text-center mb-5">Bem-vindo à Gerencial Vet</h1>
+      <h2 class="text-center mb-5">
+        Uma clínica inspirada no bem-estar animal!
+      </h2>
+      <div class="image-container">
+        <img src="images/welcome1.jpg" alt="" srcset="" />
+        <img src="images/welcome2.jpg" alt="" srcset="" />
+      </div>
+    </div>
+
+    <div class="container services-section">
+      <h2 class="text-center mb-5">Nossos Serviços</h2>
+      <div class="row text-center">
+        <!-- Serviço 1 -->
+        <div class="col-md-3">
+          <div class="mb-3">
+            <i class="service-icon bi bi-heart"></i>
+          </div>
+          <h5 class="service-title">Especialidade em Gatos</h5>
+          <p class="service-description">
+            Atendimento especializado para os cuidados e saúde do seu felino.
+          </p>
+        </div>
+        <!-- Serviço 2 -->
+        <div class="col-md-3">
+          <div class="mb-3">
+            <i class="service-icon bi bi-star-fill"></i>
+          </div>
+          <h5 class="service-title">Especialidade em Cães</h5>
+          <p class="service-description">
+            Cuidados e tratamentos personalizados para o melhor amigo do homem.
+          </p>
+        </div>
+        <!-- Serviço 3 -->
+        <div class="col-md-3">
+          <div class="mb-3">
+            <i class="service-icon bi bi-calendar-check"></i>
+          </div>
+          <h5 class="service-title">Atendimento com Hora Marcada</h5>
+          <p class="service-description">
+            Agende o melhor horário para garantir um atendimento sem espera.
+          </p>
+        </div>
+        <!-- Serviço 4 -->
+        <div class="col-md-3">
+          <div class="mb-3">
+            <i class="service-icon bi bi-plus-circle"></i>
+          </div>
+          <h5 class="service-title">Aplicação de Vacinas</h5>
+          <p class="service-description">
+            Manutenção da saúde do seu pet com vacinação atualizada e segura.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="main">
+      <!-- Carrossel -->
+      <div class="carousel-container mt-4">
+        <div
+          id="carouselVetClinic"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselVetClinic"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselVetClinic"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselVetClinic"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+              <img
+                src="images/cachorro1.jpg"
+                class="d-block w-100"
+                alt="Cachorro no veterinário"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Cuidado com Amor</h5>
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+              <img
+                src="images/gato1.jpg"
+                class="d-block w-100"
+                alt="Gato sendo cuidado"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Tratamento especial com seu pet</h5>
+              </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+              <img
+                src="images/gatoCachorro.jpg"
+                class="d-block w-100"
+                alt="Veterinário cuidando de animais"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5 style="color: black">Bem-Estar Garantido</h5>
+              </div>
+            </div>
+          </div>
+          <!-- Controles do Carrossel -->
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselVetClinic"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselVetClinic"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer id="contato" class="bg-primary text-light py-4">
+      <div class="container">
+        <div class="row">
+          <!-- Informações de contato -->
+          <div class="col-md-4 text-center mb-3">
+            <h5>Telefone</h5>
+            <p><i class="bi bi-telephone"></i> (11) 1234-5678</p>
+          </div>
+          <!-- Informações de email -->
+          <div class="col-md-4 text-center mb-3">
+            <h5>Email</h5>
+            <p><i class="bi bi-envelope"></i> contato@gerencialvet.com</p>
+          </div>
+          <!-- Informações de endereço -->
+          <div class="col-md-4 text-center mb-3">
+            <h5>Endereço</h5>
+            <p>
+              <i class="bi bi-geo-alt"></i> Rua das Flores, 123, São Paulo - SP
+            </p>
+          </div>
+        </div>
+        <div class="text-center mt-3">
+          <p class="mb-0">
+            &copy; 2024 Gerencial Vet. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

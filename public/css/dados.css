@@ -1,0 +1,79 @@
+#loginForm {
+  padding: 2rem;
+  justify-content: center;
+  width: 33%;
+  margin: 10rem auto;
+  border: 2px solid black;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin: 15px 0 5px;
+}
+
+input,
+select {
+  width: 95%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 70%;
+  margin-top: 10px;
+  height: 30px;
+  background-color: rgb(7, 7, 96);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2877d1;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+#tabelaPets {
+  border-collapse: collapse;
+  width: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+#tabelaPets thead {
+  background-color: #333;
+  color: white;
+}
+
+#tabelaPets th {
+  padding: 10px;
+  text-align: left;
+}
+
+#tabelaPets tbody tr:nth-child(odd) {
+  background-color: #f0f0f0;
+}
+
+#tabelaPets tbody tr:nth-child(even) {
+  background-color: #d9d9d9;
+}
+
+#tabelaPets td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}

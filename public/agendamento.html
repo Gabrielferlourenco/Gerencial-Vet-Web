@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agendamento - Clínica Veterinária</title>
+    <style>
+      /* Estilos gerais */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+        color: #333;
+      }
+
+      header {
+        background-color: #007bff;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2rem;
+      }
+
+      main {
+        max-width: 600px;
+        margin: 40px auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #007bff;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+
+      button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .message {
+        font-size: 1rem;
+        color: #28a745;
+        text-align: center;
+      }
+
+      footer {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Clínica Veterinária - Agendamento</h1>
+    </header>
+    <main>
+      <h2>Agendar Consulta</h2>
+
+      <!-- Formulário para buscar pelo nome do dono -->
+      <form id="searchOwnerForm">
+        <label for="ownerName">Nome do Dono</label>
+        <input
+          type="text"
+          id="ownerName"
+          placeholder="Ex: João Silva"
+          required
+        />
+        <button type="button" id="searchOwner">Buscar Pets</button>
+      </form>
+
+      <!-- Seleção de pets e agendamento -->
+      <form id="appointmentForm" style="display: none">
+        <label for="petSelect">Selecione o Pet</label>
+        <select id="petSelect" required>
+          <option value="" disabled selected>Selecione um pet</option>
+        </select>
+
+        <label for="date">Data</label>
+        <input type="date" id="date" required />
+
+        <label for="time">Horário</label>
+        <input type="time" id="time" required />
+
+        <button type="submit">Agendar</button>
+      </form>
+
+      <p id="message" class="message"></p>
+    </main>
+    <footer>© 2024 Clínica Veterinária. Todos os direitos reservados.</footer>
+    <script>
+      const searchOwnerForm = document.getElementById("searchOwnerForm");
+      const appointmentForm = document.getElementById("appointmentForm");
+      const petSelect = document.getElementById("petSelect");
+      const message = document.getElementById("message");
+
+      document
+        .getElementById("searchOwner")
+        .addEventListener("click", async () => {
+          const ownerName = document.getElementById("ownerName").value;
+
+          try {
+            const response = await fetch("/buscarPetsPorDono", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ ownerName }),
+            });
+
+            if (!response.ok)
+              throw new Error("Nenhum pet encontrado para este dono.");
+
+            const pets = await response.json();
+            petSelect.innerHTML = `<option value="" disabled selected>Selecione um pet</option>`;
+            pets.forEach((pet) => {
+              const option = document.createElement("option");
+              option.value = pet.id;
+              option.textContent = `${pet.petName} - ${pet.species}`;
+              petSelect.appendChild(option);
+            });
+
+            appointmentForm.style.display = "block";
+            message.textContent = "";
+          } catch (error) {
+            message.textContent = error.message || "Erro ao buscar pets.";
+            appointmentForm.style.display = "none";
+          }
+        });
+
+      appointmentForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const petId = petSelect.value;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+
+        try {
+          const response = await fetch("/agendar", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ petId, date, time }),
+          });
+
+          if (!response.ok) throw new Error("Erro ao agendar consulta.");
+
+          const data = await response.json();
+          message.textContent = data.message;
+        } catch (error) {
+          message.textContent =
+            error.message || "Erro ao realizar o agendamento.";
+        }
+      });
+    </script>
+  </body>
+</html>
